@@ -1,5 +1,4 @@
-const find = require('./comandos/find');
-
+const find = require('./comandos/find.js');
 const action = process.argv[2];
 
 if (!action) {
@@ -14,13 +13,16 @@ switch (action){
             console.log('Olvidaste introducir el titulo');
             break;
         }
-        // const exists = find(title);
-        console.log('Titulo:',title);
-        if (title== true) {
-            console.log('El titulo existe con el nombre:',find(title));
-        } else {
-            console.log('El titulo NO existe con el nombre:',find(title));
-        }
+        const exists = find(title);
+
+        // console.log('Title:',title);
+        // console.log('exists:',exists);
+        // console.log('exists:',exists.title);
+        // console.log('El titulo es :',exists);
+        
+        if (exists=== undefined) {
+            console.log('El titulo, ', title, ', no esta en el array');
+        }    else { console.log('El titulo, ',title, ', si esta en el array'); }
         
         break;
     }
